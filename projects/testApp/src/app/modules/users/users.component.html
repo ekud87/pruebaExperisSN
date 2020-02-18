@@ -1,0 +1,131 @@
+<div class="container">
+  <div class="row justify-content-center align-items-center minh-100">
+    <div class="col-md-12 col-lg-12 col-xs-12 ">
+      <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Usuario</th>
+            <th scope="col">Correo</th>
+            <th scope="col">Dirección</th>
+            <th scope="col">Telefono</th>
+            <th scope="col">Pagina Web</th>
+            <th scope="col">Compañia</th>
+          </tr> 
+        </thead>
+        <tbody *ngFor="let user of users | filter:module">
+          <tr class="pointer"  data-toggle="modal" data-target="#dateModal" (click)="getUser(user.id)">
+            <th scope="row">{{user.id}}</th>
+            <td>{{user.name}}</td>
+            <td>{{user.username}}</td>
+            <td>{{user.email}}</td>
+            <td>{{user.address.street}}-{{user.address.suite}}-{{user.address.city}} 
+              / codigo: {{user.address.zipcode}}-({{user.address.geo.lat}}/{{user.address.geo.lng}}) </td>
+            <td>{{user.phone}}</td>
+            <td>{{user.website}}</td>
+            <td>{{user.company.name}}-{{user.company.catchPhrase}}-{{user.company.bs}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="modal fade" id="dateModal" tabindex="-1" role="dialog" aria-labelledby="dateModal" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Fecha Entrevista</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="container">
+          <div class="container">
+            <dl-date-time-picker
+              startView="day" maxView="year" minxView="minute" minuteStep="20"  [(ngModel)]="date">
+            </dl-date-time-picker>
+            <select class="form-control" (change)="selectOption($event.target.value)">
+              <option>Tipo de entrevista</option>
+              <option *ngFor="let type of interviewType" 
+                  [value]="type.id">
+                  {{type.name}}
+              </option>
+            </select>
+          </div>
+         </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary" (click)="save() ">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="modal fade" id="failedModal" tabindex="-1" role="dialog" aria-labelledby="dateModal" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="container">
+          <p>{{scheduledUsers.msg}}</p>
+          <div class="wrapper">
+            <table id="failed-table" class="table">
+              <thead class="thead-dark">
+                <tr>
+                  <th scope="col">Id</th>
+                  <th scope="col">Nombre</th>
+                  <th scope="col">Usuario</th>
+                  <th scope="col">Correo</th>
+                  <th scope="col">Dirección</th>
+                  <th scope="col">Telefono</th>
+                  <th scope="col">Pagina Web</th>
+                  <th scope="col">Compañia</th>
+                  <th scope="col">Entrevista</th>
+                </tr> 
+              </thead>
+              <tbody *ngFor="let user of scheduledUsers.result | filter:module">
+                <tr>
+                  <th scope="row">{{user.id}}</th>
+                  <td>{{user.name}}</td>
+                  <td>{{user.username}}</td>
+                  <td>{{user.email}}</td>
+                  <td>{{user.address}}</td>
+                  <td>{{user.phone}}</td>
+                  <td>{{user.website}}</td>
+                  <td>{{user.company}}</td>
+                  <td>{{user.interview}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="okModal" tabindex="-1" role="dialog" aria-labelledby="dateModal" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="container">
+          {{scheduledUsers.msg}}
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+      </div>
+    </div>
+  </div>
+</div>

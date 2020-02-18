@@ -1,0 +1,11 @@
+d:\Users\MSI\Desktop\Test\Test.Core\bin\Release\netcoreapp3.1\Test.Core.deps.json
+d:\Users\MSI\Desktop\Test\Test.Core\bin\Release\netcoreapp3.1\Test.Core.dll
+d:\Users\MSI\Desktop\Test\Test.Core\bin\Release\netcoreapp3.1\Test.Core.pdb
+d:\Users\MSI\Desktop\Test\Test.Core\bin\Release\netcoreapp3.1\Test.DataAccess.dll
+d:\Users\MSI\Desktop\Test\Test.Core\bin\Release\netcoreapp3.1\Test.DataAccess.pdb
+d:\Users\MSI\Desktop\Test\Test.Core\obj\Release\netcoreapp3.1\Test.Core.csprojAssemblyReference.cache
+d:\Users\MSI\Desktop\Test\Test.Core\obj\Release\netcoreapp3.1\Test.Core.AssemblyInfoInputs.cache
+d:\Users\MSI\Desktop\Test\Test.Core\obj\Release\netcoreapp3.1\Test.Core.AssemblyInfo.cs
+d:\Users\MSI\Desktop\Test\Test.Core\obj\Release\netcoreapp3.1\Test.Core.csproj.CopyComplete
+d:\Users\MSI\Desktop\Test\Test.Core\obj\Release\netcoreapp3.1\Test.Core.dll
+d:\Users\MSI\Desktop\Test\Test.Core\obj\Release\netcoreapp3.1\Test.Core.pdb
